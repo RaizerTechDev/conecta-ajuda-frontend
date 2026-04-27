@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Heart } from "lucide-react";
 import { Header } from "../../components/Header"; 
-import  { Footer } from "../../components/Footer";
+
 import logoConectaAjuda from "../../assets/images/logo-conecta-ajuda.png";
 import "./styles.scss";
 
@@ -49,8 +49,7 @@ export function Home() {
         <div className="hero-image">
           <img src={logoConectaAjuda} alt="Conecta Ajuda - Gestão de Doações" />
         </div>
-      </main>
-      <Footer />
+      </main>     
     </div>   
   );
 }

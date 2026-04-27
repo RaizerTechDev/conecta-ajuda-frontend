@@ -3,6 +3,7 @@ import { Home } from '../pages/Home';
 import { Login } from '../pages/Login';
 import { Dashboard } from '../pages/Dashboard';
 import { GerenciarDoacoes } from '../pages/GerenciarDoacoes';
+import { Footer } from '../components/Footer';
 
 // Função para verificar se o usuário está logado
 const PrivateRoute = ({ children }) => {
@@ -30,6 +31,8 @@ export function AppRoutes() {
           } 
         />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   );
 }
