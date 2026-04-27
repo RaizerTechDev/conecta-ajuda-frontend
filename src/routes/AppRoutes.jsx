@@ -3,6 +3,7 @@ import { Home } from '../pages/Home';
 import { Login } from '../pages/Login';
 import { Dashboard } from '../pages/Dashboard';
 import { GerenciarDoacoes } from '../pages/GerenciarDoacoes';
+import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
 // Função para verificar se o usuário está logado
@@ -14,6 +15,7 @@ const PrivateRoute = ({ children }) => {
 export function AppRoutes() {
   return (
     <BrowserRouter>
+        <Header />  
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

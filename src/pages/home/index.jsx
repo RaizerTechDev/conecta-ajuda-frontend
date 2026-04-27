@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Heart } from "lucide-react";
-import { Header } from "../../components/Header"; 
 
 import logoConectaAjuda from "../../assets/images/logo-conecta-ajuda.png";
 import "./styles.scss";
@@ -21,8 +20,7 @@ export function Home() {
   };
 
   return (
-    <div className="home-container">
-      <Header />  
+    <div className="home-container"> 
 
       <main className="hero">
         <div className="hero-content">

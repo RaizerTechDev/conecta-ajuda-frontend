@@ -12,6 +12,7 @@ export function Dashboard() {
   const userData = localStorage.getItem('@ConectaAjuda:user');
   const user = userData ? JSON.parse(userData) : null;
 
+  //  Função para lidar com logout, removendo token e dados do usuário do localStorage e redirecionando para a página inicial
   function handleLogout() {
     localStorage.removeItem('@ConectaAjuda:token');
     localStorage.removeItem('@ConectaAjuda:user');
@@ -59,17 +60,8 @@ export function Dashboard() {
           {/* Botão de Doação Rápida para Visitantes ou Doadores */}
           <button className="btn-donate-now" onClick={() => navigate('/registro-doacoes')}>
             Quero Doar <Heart size={18} />
-          </button>
-
-          {user ? (
-            <button className="btn-logout" onClick={handleLogout}>
-              Sair <LogOut size={18} />
-            </button>
-          ) : (
-            <button className="btn-login-dash" onClick={() => navigate('/login')}>
-              Login Admin
-            </button>
-          )}
+          </button>             
+         
         </div>
       </header>
 
