@@ -1,0 +1,51 @@
+@import '../../styles/variables';
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  @include flex-center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: $white;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  
+  .input-group {
+    margin: 1.5rem 0;
+    label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid $light-purple;
+      border-radius: 8px;
+    }
+  }
+}
+
+.btn-success {
+  background: $success;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  
+  &:hover { filter: brightness(0.9); }
+}
+
+.badge-pending {
+  background: #fff3cd;
+  color: #856404;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}

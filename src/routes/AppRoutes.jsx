@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Home } from '../pages/Home';
 import { Login } from '../pages/Login';
 import { Dashboard } from '../pages/Dashboard';
+import { GerenciarDoacoes } from '../pages/GerenciarDoacoes';
 
 // Função para verificar se o usuário está logado
 const PrivateRoute = ({ children }) => {
@@ -24,7 +25,7 @@ export function AppRoutes() {
           path="/gerenciar" 
           element={
             <PrivateRoute>
-              {/* <GerenciarDoacoes /> */}
+            <GerenciarDoacoes /> 
             </PrivateRoute>
           } 
         />
