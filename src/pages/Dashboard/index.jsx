@@ -99,7 +99,7 @@ export function Dashboard() {
               {user?.tipo === 'ADMIN' ? (
                  <button 
                    className="btn-action" 
-                   onClick={() => navigate(`/gerenciar/${item.necessidade_id}`)}
+                   onClick={() => navigate(`/gerenciar-doacoes/${item.necessidade_id}`)}
                  >
                    Gerenciar Doação
                  </button>

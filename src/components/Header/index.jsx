@@ -37,7 +37,7 @@ export function Header() {
             <div className="admin-menu-container">
               <button className="menu-trigger" onClick={() => setIsOpen(!isOpen)}>
                 <Settings size={20} className={isOpen ? 'rotate' : ''} />
-                <span className="hide-mobile">Painel Admin</span>
+                <em className="hide-mobile">Painel Admin </em>
                 <ChevronDown size={16} />
               </button>
 
@@ -50,7 +50,7 @@ export function Header() {
                       <small>Nível: Administrador</small>
                     </div>
 
-                    <button className="menu-item" onClick={() => { navigate('/gerenciar-entregas'); setIsOpen(false); }}>
+                    <button className="menu-item" onClick={() => { navigate('/gerenciar-doacoes'); setIsOpen(false); }}>
                       <PackageCheck size={20} />
                       <div className="item-text">
                         <p>Gerenciar Doações</p>
@@ -78,7 +78,7 @@ export function Header() {
             </div>
           ) : (
             /* BOTÃO PARA DOADOR LOGADO */
-            <button onClick={() => navigate('/dashboard')} className="btn-login">
+            <button onClick={() => navigate('/login')} className="btn-login">
               Ir para Painel <ArrowRight size={18} />
             </button>
           )
