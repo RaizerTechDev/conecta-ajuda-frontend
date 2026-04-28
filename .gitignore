@@ -1,0 +1,39 @@
+# Dependências
+node_modules/
+jspm_packages/
+
+# Build e Saída
+dist/
+build/
+.output/
+.next/
+
+# Variáveis de Ambiente (CRÍTICO: nunca suba isso para o GitHub)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Debug do VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Cache
+.eslintcache
+.cache/
+
+# Render / Outros serviços de Deploy
+.render/

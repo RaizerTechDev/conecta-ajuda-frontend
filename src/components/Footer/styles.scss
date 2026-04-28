@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  width: 100%;
+  padding: 2rem 5%; // Aumentado para dar mais presença
+  background: $bg-gradient-start; 
+  backdrop-filter: blur(0.625rem);
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  margin-top: auto; // Garante que ele fique no final se o conteúdo for pouco
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+      font-size: 1.1rem; // Texto maior
+      color: #ffffff;
+      opacity: 0.6;
+      font-weight: 500;
+      letter-spacing: 0.05rem;
+      margin: 0;
+
+      &:first-child {
+        opacity: 0.9;
+        color: #9f7aea; // Nome em roxo para destaque
+      }
+    }
+  }
+
+  @media (max-width: 30rem) {
+    padding: 2.5rem 1rem;
+    
+    p {
+      font-size: 0.85rem;
+    }
+  }
+}

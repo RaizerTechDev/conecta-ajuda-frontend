@@ -1,0 +1,106 @@
+@import '../../styles/variables';
+
+.login-page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, $primary-purple 0%, $secondary-purple 100%);
+  padding: 20px;
+
+  .login-card {
+    background: $white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.5s ease-out;
+
+    h2 {
+      color: $dark-bg;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 2rem; color: #2d3748; font-weight: 800; 
+      color: $primary-purple;
+      font-weight: 800;
+    }
+
+    .input-group {
+      margin-bottom: 1.2rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #4a5568;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 2px solid #edf2f7;
+        border-radius: 10px;
+        outline: none;
+        transition: border-color 0.2s;
+
+        &:focus {
+          border-color: $secondary-purple;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background: $primary-purple;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+
+      &:hover:not(:disabled) {
+        background: darken($primary-purple, 5%);
+        transform: translateY(-2px);
+      }
+
+      &:disabled {
+        background: #a0aec0;
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+
+    .login-footer{
+      p 
+      { 
+        margin: 2rem;
+        color: #718096; font-size: 0.9rem; }
+      em { 
+        color: $primary-purple; 
+         font-style: normal;
+       font-weight: 700; 
+        cursor: pointer;
+        &:hover { text-decoration: underline; }
+       }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// Responsividade para telas pequenas
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem;
+  }
+}
