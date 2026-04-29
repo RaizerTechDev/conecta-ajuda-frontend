@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PackageCheck, Clock, User, Box, ArrowLeft, RefreshCw } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import api from '../../services/api';
+import api from '../../../services/api';
 import './styles.scss';
 
 export const GerenciarDoacoes = () => {

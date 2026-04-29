@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Home } from '../pages/Home';
-import { Login } from '../pages/Login';
-import { Dashboard } from '../pages/Dashboard';
-import { RegistroDoacoes } from '../pages/RegistroDoacoes';
-import { GerenciarDoacoes } from '../pages/GerenciarDoacoes';
-import { Register } from '../pages/Cadastro';
+import { Login } from '../pages/usuarios/Login';
+import { Register } from '../pages/usuarios/Cadastro';
+import { Dashboard } from '../pages/necessidades/Dashboard';
+import { RegistroDoacoes } from '../pages/doacoes/RegistroDoacoes';
+import { GerenciarDoacoes } from '../pages/doacoes/GerenciarDoacoes'; 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 

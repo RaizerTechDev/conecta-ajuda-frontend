@@ -26,7 +26,7 @@ export function Home() {
         <div className="hero-content">
           <h1>
             Solidariedade que se move com{" "}
-            <em className="word-rotate">{palavras[index]}</em>
+            <em className="word-rotate">{palavras[index]}!</em>
           </h1>
           
           <p className="description-list">

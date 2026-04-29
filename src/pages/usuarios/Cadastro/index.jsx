@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../../services/api';
+import api from '../../../services/api';
 import { User, Mail, Lock, Building2, Heart, ShieldCheck, Eye, EyeOff } from 'lucide-react';
 import './styles.scss';
 
