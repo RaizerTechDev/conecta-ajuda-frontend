@@ -1,7 +1,7 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .navbar {
-  height: 5rem; 
+  height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,32 +20,31 @@
     cursor: pointer;
 
     .logo-img {
-      height: 2.2rem; 
-      width: auto;    
+      height: 2.2rem;
+      width: auto;
     }
 
     // Estilo Geral / Desktop
-.logo-text {
-  display: flex;
-  align-items: center;
-  font-size: 1.4rem;
-  color: #ffffff;
-  font-weight: 700;
-  gap: 0.5rem;
+    .logo-text {
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+      color: #ffffff;
+      font-weight: 700;
+      gap: 0.5rem;
 
-  .changeColor {
-    font-style: normal;
-    color: #9f7aea;
+      .changeColor {
+        font-style: normal;
+        color: #9f7aea;
+      }
+
+      &::after {
+        content: "Gaspar";
+        color: inherit;
+        margin-left: 0.3rem;
+      }
+    }
   }
-
-  &::after {
-    content: "Gaspar";
-    color: inherit;
-    margin-left: 0.3rem;
-  }
-}}
-
-
 
   // --- CONTAINER DO MENU/BOTÃO ---
   .nav-actions {
@@ -57,11 +56,11 @@
   .btn-login {
     display: flex;
     align-items: center;
-    gap: 0.5rem;           
-    background: #6b46c1;     
+    gap: 0.5rem;
+    background: #6b46c1;
     color: #ffffff;
     padding: 0.7rem 1.2rem;
-    border-radius: 0.75rem;   
+    border-radius: 0.75rem;
     border: none;
     font-weight: 700;
     font-size: 0.9rem;
@@ -71,7 +70,7 @@
 
     &:hover {
       transform: translateY(-2px);
-      background: #805ad5;             
+      background: #805ad5;
       box-shadow: 0 8px 15px rgba(107, 70, 193, 0.3);
     }
   }
@@ -93,20 +92,32 @@
       cursor: pointer;
       transition: 0.3s;
 
-      svg { transition: 0.3s; }
-      svg.rotate { transform: rotate(180deg); }
+      svg {
+        transition: 0.3s;
+      }
+      svg.rotate {
+        transform: rotate(180deg);
+      }
 
-      &:hover { background: #6b46c1; border-color: #6b46c1; }
+      &:hover {
+        background: #6b46c1;
+        border-color: #6b46c1;
+      }
 
       @media (max-width: 48rem) {
-        .hide-mobile { display: none; } // No mobile esconde o texto e deixa só ícone
+        .hide-mobile {
+          display: none;
+        } // No mobile esconde o texto e deixa só ícone
         padding: 0.6rem;
       }
     }
 
     .menu-overlay {
       position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       z-index: 99;
     }
 
@@ -118,7 +129,7 @@
       background: white;
       border-radius: 1rem;
       padding: 0.75rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       z-index: 100;
       animation: slideDown 0.2s ease-out;
 
@@ -126,36 +137,84 @@
         padding: 0.5rem 1rem;
         border-bottom: 1px solid #edf2f7;
         margin-bottom: 0.5rem;
-        p { color: #2d3748; font-weight: 800; font-size: 0.9rem; }
-        small { color: #6b46c1; font-weight: 700; font-size: 0.7rem; }
+        p {
+          color: #2d3748;
+          font-weight: 800;
+          font-size: 0.9rem;
+        }
+        small {
+          color: #6b46c1;
+          font-weight: 700;
+          font-size: 0.7rem;
+        }
       }
 
-      .menu-item {
-        width: 100%;
+      .menu-group {
         display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 0.75rem 1rem;
-        border-radius: 0.5rem;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        text-align: left;
-        transition: 0.2s;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 8px;
 
-        svg { color: #6b46c1; }
-        .item-text {
-          p { font-size: 0.85rem; font-weight: 700; color: #2d3748; }
-          small { color: #718096; font-size: 0.7rem; }
+        .group-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between; // Espaça o texto do ícone chevron
+          padding: 12px 16px;
+          color: $text-color;
+          font-weight: 600;
+          cursor: pointer;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+
+          .title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+          }
+
+          &:hover {
+            background: rgba(107, 70, 193, 0.05);
+            color: $primary-purple;
+          }
+
+          &.active {
+            color: $primary-purple;
+            background: rgba(107, 70, 193, 0.08);
+          }
         }
 
-        &:hover { background: #f7fafc; transform: translateX(4px); }
+        .group-actions {
+          display: flex;
+          flex-direction: column;
+          padding-left: 24px; // Recuo para os sub-itens
+          margin-top: 4px;
+          border-left: 2px solid rgba(107, 70, 193, 0.2); // Linha lateral guia
+          margin-left: 25px; // Alinha a linha com o ícone de cima
 
-        &.logout {
-          color: #e53e3e;
-          margin-top: 0.5rem;
-          svg { color: #e53e3e; }
-          &:hover { background: #fff5f5; }
+          .menu-subitem {
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            text-align: left;
+            color: $text-color;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            width: 100%;
+
+            small {
+              font-size: 0.85rem;
+              font-weight: 500;
+            }
+
+            &:hover {
+              background: rgba(107, 70, 193, 0.1);
+              color: $primary-purple;
+              padding-left: 20px; // Efeito de deslocamento no hover
+            }
+          }
         }
       }
     }
@@ -163,45 +222,51 @@
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 // AJUSTE MOBILE GERAL
 @media (max-width: 30rem) {
   .navbar {
-    padding: 0.8rem 4%; 
-    height: auto;       
+    padding: 0.8rem 4%;
+    height: auto;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-  
-    
-   @media (max-width: 30rem) {
-  .logo-text {
-    font-size: 0.2rem;      
-    display: flex;       
-    flex-direction: column; 
-    text-align: center;
-    line-height: 1;
-    margin-left: 1rem;      
-    width: 100%;           
-    gap: 0.2rem;           
 
-    &::after {
-      content: "Gaspar";            
-      font-weight: bold;    
+    @media (max-width: 30rem) {
+      .logo-text {
+        font-size: 0.2rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        line-height: 1;
+        margin-left: 1rem;
+        width: 100%;
+        gap: 0.2rem;
+
+        &::after {
+          content: "Gaspar";
+          font-weight: bold;
+        }
+      }
     }
-  }
-}    
 
-    .btn-login {      
+    .btn-login {
       font-size: 0; // "Esconde" o texto "Área do Administrativo"
-    padding: 0.5rem 0.75rem;
+      padding: 0.5rem 0.75rem;
 
-    &::after {
-      content: "Painel Admin"; // Texto que aparece no celular
-      font-size: 0.875rem;     // 14px em rem
-    }}
+      &::after {
+        content: "Painel Admin"; // Texto que aparece no celular
+        font-size: 0.875rem; // 14px em rem
+      }
+    }
   }
 }
