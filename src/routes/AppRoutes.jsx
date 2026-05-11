@@ -5,6 +5,7 @@ import { Register } from '../pages/usuarios/Cadastro';
 import { Dashboard } from '../pages/necessidades/Dashboard';
 import { RegistroDoacoes } from '../pages/doacoes/RegistroDoacoes';
 import { GerenciarDoacoes } from '../pages/doacoes/GerenciarDoacoes'; 
+import { GerenciarNecessidades } from '../pages/necessidades/GerenciarNecessidades';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
@@ -37,17 +38,37 @@ export function AppRoutes() {
           } 
         />  
 
-        {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) */}
+        {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para gerenciar doações*/}
         <Route 
-          path="/gerenciar-doacoes" 
+          path="/gerenciar-doacoes"   
           element={
             <PrivateRoute>
-            <GerenciarDoacoes /> 
+            <GerenciarDoacoes />           
+            </PrivateRoute>
+          } 
+          />
+
+          {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para cadastrar ncessidades*/}
+        <Route          
+          path="/cadastrar-necessidades"
+          element={
+            <PrivateRoute>           
+            <GerenciarNecessidades />
+            </PrivateRoute>
+          } 
+        />   
+
+             {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para cadastrar ncessidades*/}
+        <Route          
+          path="/atualizar-necessidades/:id"
+          element={
+            <PrivateRoute>           
+            <GerenciarNecessidades />
             </PrivateRoute>
           } 
         />
-      </Routes>
 
+      </Routes>
       <Footer />
     </BrowserRouter>
   );
