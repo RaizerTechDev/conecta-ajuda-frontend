@@ -58,8 +58,13 @@ if (id) {
     setLoading(true);
 
     try {
+      const novoStatus = Number(formData.quantidade_atual) >= Number(formData.quantidade_objetivo) 
+    ? 'CONCLUIDO' 
+    : 'ATIVO';
+
       const payload = {
         ...formData,
+        status: novoStatus,
         quantidade_objetivo: Number(formData.quantidade_objetivo),
         quantidade_atual: Number(formData.quantidade_atual),
         centro_id: Number(formData.centro_id)
