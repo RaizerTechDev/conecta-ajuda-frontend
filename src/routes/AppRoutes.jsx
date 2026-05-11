@@ -48,7 +48,7 @@ export function AppRoutes() {
           } 
           />
 
-          {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para cadastrar ncessidades*/}
+          {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para cadastrar necessidades*/}
         <Route          
           path="/cadastrar-necessidades"
           element={
@@ -58,7 +58,7 @@ export function AppRoutes() {
           } 
         />   
 
-             {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para cadastrar ncessidades*/}
+             {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para atualizar ncessidades*/}
         <Route          
           path="/atualizar-necessidades/:id"
           element={
