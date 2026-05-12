@@ -100,18 +100,8 @@ export function Header() {
                               setIsOpen(false);
                             }}
                           >
-                            <small>Usuario Cadastrado</small>
-                          </button>
-
-                          <button
-                            className="menu-subitem"
-                            onClick={() => {
-                              navigate("/atualizar-usuarios");
-                              setIsOpen(false);
-                            }}
-                          >
-                            <small>Atualizar Usuário</small>
-                          </button>
+                            <small>Usuarios Cadastrados</small>
+                          </button>                   
                         </div>
                       )}
                     </div>

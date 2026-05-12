@@ -3,6 +3,7 @@ import { Home } from '../pages/Home';
 import { Login } from '../pages/usuarios/Login';
 import { Register } from '../pages/usuarios/Cadastro';
 import { Dashboard } from '../pages/necessidades/Dashboard';
+import { GerenciarUsuarios } from '../pages/usuarios/GerenciarUsuarios';
 import { RegistroDoacoes } from '../pages/doacoes/RegistroDoacoes';
 import { GerenciarDoacoes } from '../pages/doacoes/GerenciarDoacoes'; 
 import { GerenciarNecessidades } from '../pages/necessidades/GerenciarNecessidades';
@@ -25,10 +26,10 @@ export function AppRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Register />} />
         
-        {/* Agora o Dashboard é PÚBLICO */}
+        {/* Rota Lista de Necessidades é Pública para doação */}
         <Route path="/dashboard" element={<Dashboard />} />
 
-        {/* Rotas que continuam PROTEGIDAS (Só para Logado/Doador) */}
+        {/* Rotas que continuam PROTEGIDAS (Só para Logado/Doador) registrar sua doação*/}
         <Route 
           path="/registro-doacoes" 
           element={ 
@@ -38,7 +39,19 @@ export function AppRoutes() {
           } 
         />  
 
-        {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para gerenciar doações*/}
+        {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para gerenciar usuários, gerenciar doações e gerenciar necessidades*/}
+
+          {/* Rota buscar usuários*/}
+        <Route          
+          path="/buscar-usuarios"
+          element={
+            <PrivateRoute>           
+            <GerenciarUsuarios />
+            </PrivateRoute>
+          } 
+        />          
+
+         {/* Rota atualizar doações*/}
         <Route 
           path="/gerenciar-doacoes"   
           element={
@@ -48,7 +61,7 @@ export function AppRoutes() {
           } 
           />
 
-          {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para cadastrar necessidades*/}
+          {/* Rota cdastrar necessidades*/}
         <Route          
           path="/cadastrar-necessidades"
           element={
@@ -58,7 +71,7 @@ export function AppRoutes() {
           } 
         />   
 
-             {/* Rotas que continuam PROTEGIDAS (Só para Logado/Admin) para atualizar ncessidades*/}
+             {/* Rota atualizar lista de ncessidades do dashboard e somente o admin vê o botão para atualização */}
         <Route          
           path="/atualizar-necessidades/:id"
           element={
