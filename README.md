@@ -39,30 +39,35 @@ O sistema consiste em uma plataforma de monitoramento de inventário e necessida
 
 ### 🎨 Front-end
 - **Tecnologias:** `React.js`, `Vite`, `Sass (SCSS)`, `Tailwind CSS` e `Lucide React`.
-- **Funcionalidades:** - Dashboard de visualização de necessidades.
-    - Barra de progresso dinâmica por item.
-    - Filtros por categoria e nível de prioridade.
-    - Registro de intenção de doação.
-    - Design responsivo focado em usabilidade móvel.
+- **Funcionalidades:** 
+  - **Dashboard de Necessidades:** Visualização clara com barra de progresso dinâmica e filtros por categoria/prioridade.
+  - **Gestão de Usuários (Admin):** Painel exclusivo para administração de perfis, permitindo o remanejamento de administradores entre Centros de Distribuição.
+  - **Fluxo de Doação:** Registro rápido de intenção de doação e localização de pontos de apoio.
+  - **Design Responsivo:** Interface otimizada para uso em dispositivos móveis por voluntários em campo.
 
 ### ⚙️ Back-end
 - **Tecnologias:** `Node.js`, `Express` e `node-postgres (PG)`.
 
 - **Funcionalidades:**
-    - API RESTful para gestão de centros e necessidades.
-    - Endpoints para atualização rápida de estoque.
-    - Lógica automatizada: ao confirmar entrega, o sistema incrementa o inventário da necessidade vinculada.
+    - **Gestão de Acesso (RBAC):** Middleware de proteção de rotas diferenciando ações de Administradores e Doadores.
+  - **API de Usuários:** Endpoints para cadastro, autenticação e atualização de perfil (remanejamento de CD).
+  - **Lógica de Estoque Automática:** Incremento de inventário vinculado à confirmação de entrega de doações.
 
 - **Repositório:** [Conecta Ajuda Backend](https://github.com/RaizerTechDev/conecta-ajuda-backend)
 
 ### 🗄️ Banco de Dados (PostgreSQL)
-- **usuarios:** Controle de acesso (Admin/Doador).
-- **centros_distribuicao:** Cadastro de pontos de apoio e localização.
-- **categorias:** Segmentação de itens (Higiene, Alimento, etc).
-- **necessidades:** Tabela dinâmica que controla `quantidade_atual` vs `objetivo`.
-- **Regras de Prioridade:**
-    - 🔴 **CRÍTICA (< 20%)** | 🟠 **ALTA (20-50%)** | 🟡 **MÉDIA (50-80%)** | 🟢 **BAIXA (> 80%)**
-- **registro_doacoes:** Logs de doações pendentes e entregues.
+  - **usuarios:** Armazena perfis e credenciais. Controla o acesso via tipos (`ADMIN` vinculado a um CD, ou `DOADOR`).
+  - **centros_distribuicao:** Cadastro dos pontos de apoio com dados de localização e responsáveis.
+  - **categorias:** Tabela de segmentação (ex: Higiene, Alimento, Limpeza) para organização do inventário.
+  - **necessidades:** O coração do sistema. Controla `quantidade_atual` vs `quantidade_objetivo`.
+  - **Status Dinâmico:** Gerenciado automaticamente entre `ATIVO` e `CONCLUIDO`.
+  - **Lógica de Prioridade:**
+    - 🔴 **CRÍTICA:** Menos de 20% da meta atingida.
+    - 🟠 **ALTA:** Entre 20% e 50% da meta atingida.
+    - 🟡 **MÉDIA:** Entre 50% e 80% da meta atingida.
+    - 🟢 **BAIXA:** Acima de 80% da meta atingida.
+- **registro_doacoes:** Histórico e rastreabilidade de todas as intenções de doação, logs de entrega e validação de estoque.
+      
 
 ---
 
