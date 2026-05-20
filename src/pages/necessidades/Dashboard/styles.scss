@@ -135,9 +135,10 @@
     }
 
     // Bordas de Prioridade
-    &.critica { border-top: 5px solid #f56565; }
-    &.alta { border-top: 5px solid #ed8936; }
-    &.normal { border-top: 5px solid #9f7aea; }
+    &.critica { border-top: 5px solid #ef4444; }
+    &.alta { border-top: 5px solid #f97316; }
+    &.media{ border-top: 5px solid #facc15; }
+    &.baixa { border-top: 5px solid #22c55e; }
 
     .card-header {
       .badge-category {
