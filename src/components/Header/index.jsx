@@ -28,7 +28,7 @@ export function Header() {
     localStorage.removeItem("@ConectaAjuda:token");
     localStorage.removeItem("@ConectaAjuda:user");
     navigate("/");
-    window.location.reload(); // Garante que o estado limpe
+    window.location.reload(); // Garante que o estado limpe e atualize a navbar
   };
 
   return (
@@ -49,7 +49,7 @@ export function Header() {
       <div className="nav-actions">
         {user ? (
           user.tipo === "ADMIN" ? (
-            /* MENU DO ADMINISTRADOR LOGADO: Exibe Painel Admin */
+            /* ================= MENU DO ADMINISTRADOR LOGADO ================= */
             <div className="admin-menu-container">
               <button
                 className="menu-trigger"
@@ -72,6 +72,7 @@ export function Header() {
                       <small>Nível: Administrador</small>
                     </div>
 
+                    {/* GERENCIAR USUÁRIOS */}
                     <div className="menu-group">
                       <div
                         className={`group-header ${showGerenciarUsuario ? "active" : ""}`}
@@ -103,6 +104,7 @@ export function Header() {
                       )}
                     </div>
 
+                    {/* GERENCIAR DOAÇÕES */}
                     <div className="menu-group">
                       <div
                         className={`group-header ${showGerenciarDoacao ? "active" : ""}`}
@@ -134,6 +136,7 @@ export function Header() {
                       )}
                     </div>
 
+                    {/* GERENCIAR NECESSIDADES */}
                     <div className="menu-group">
                       <div
                         className={`group-header ${showGerenciarNecessidade ? "active" : ""}`}
@@ -186,13 +189,57 @@ export function Header() {
               )}
             </div>
           ) : (
-            /* BOTÃO PARA DOADOR LOGADO */
-            <button onClick={() => navigate("/login")} className="btn-login">
-              Ir para Painel <ArrowRight size={18} />
-            </button>
+            /* ================= MENU DO DOADOR LOGADO ================= */
+            <div className="admin-menu-container">
+              <button
+                className="menu-trigger"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <User size={20} />
+                <em className="hide-mobile"> Minha Conta </em>
+                <ChevronDown size={16} />
+              </button>
+
+              {isOpen && (
+                <>
+                  <div
+                    className="menu-overlay"
+                    onClick={() => setIsOpen(false)}
+                  />
+                  <nav className="dropdown-menu">
+                    <div className="menu-header">
+                      <p>Olá, {user.nome}</p>
+                      <small>Nível: Doador</small>
+                    </div>
+
+                    <div className="menu-group">
+                      <div
+                        className="group-header"
+                        onClick={() => {
+                          navigate("/dashboard");
+                          setIsOpen(false);
+                        }}
+                      >
+                        <div className="title-wrapper">
+                          <PackageCheck size={20} />
+                          <p>Ver Necessidades</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="menu-divider" />
+
+                    <button className="menu-item logout" onClick={handleLogout}>
+                      <LogOut size={20} />
+                      <p>Sair do Sistema</p>
+                    </button>
+                  </nav>
+                </>
+              )}
+            </div>
           )
         ) : (
-          /* BOTÃO PARA USUÁRIO DESLOGADO: Alterado para "Área Login" */
+          /* ================= BOTÃO PARA USUÁRIO DESLOGADO ================= */
           <button onClick={() => navigate("/login")} className="btn-login">
             Área Login <ArrowRight size={18} />
           </button>
