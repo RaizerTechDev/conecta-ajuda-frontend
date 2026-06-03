@@ -17,9 +17,9 @@ import "./styles.scss";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-   const [showGerenciarUsuario, setShowGerenciarUsuario] = useState(false);
-   const [showGerenciarDoacao, setShowGerenciarDoacao] = useState(false);
-  const  [showGerenciarNecessidade, setShowGerenciarNecessidade] = useState(false);
+  const [showGerenciarUsuario, setShowGerenciarUsuario] = useState(false);
+  const [showGerenciarDoacao, setShowGerenciarDoacao] = useState(false);
+  const [showGerenciarNecessidade, setShowGerenciarNecessidade] = useState(false);
 
   // Pega o usuário do localStorage
   const user = JSON.parse(localStorage.getItem("@ConectaAjuda:user"));
@@ -49,14 +49,14 @@ export function Header() {
       <div className="nav-actions">
         {user ? (
           user.tipo === "ADMIN" ? (
-            /* MENU DO ADMINISTRADOR */
+            /* MENU DO ADMINISTRADOR LOGADO: Exibe Painel Admin */
             <div className="admin-menu-container">
               <button
                 className="menu-trigger"
                 onClick={() => setIsOpen(!isOpen)}
               >
                 <Settings size={20} className={isOpen ? "rotate" : ""} />
-                <em className="hide-mobile">Painel Admin </em>
+                <em className="hide-mobile"> Painel Admin </em>
                 <ChevronDown size={16} />
               </button>
 
@@ -75,9 +75,7 @@ export function Header() {
                     <div className="menu-group">
                       <div
                         className={`group-header ${showGerenciarUsuario ? "active" : ""}`}
-                        onClick={() => setShowGerenciarUsuario(!showGerenciarUsuario
-
-                        )}
+                        onClick={() => setShowGerenciarUsuario(!showGerenciarUsuario)}
                       >
                         <div className="title-wrapper">
                           <User size={20} />
@@ -90,7 +88,6 @@ export function Header() {
                         )}
                       </div>
 
-                      {/* Renderização condicional dos botões */}
                       {showGerenciarUsuario && (
                         <div className="group-actions animated-fade-in">
                           <button
@@ -106,13 +103,13 @@ export function Header() {
                       )}
                     </div>
 
-                  <div className="menu-group">
+                    <div className="menu-group">
                       <div
                         className={`group-header ${showGerenciarDoacao ? "active" : ""}`}
                         onClick={() => setShowGerenciarDoacao(!showGerenciarDoacao)}
                       >
                         <div className="title-wrapper">
-                           <PackageCheck size={20} />
+                          <PackageCheck size={20} />
                           <p>Gerenciar Doações</p>
                         </div>
                         {showGerenciarDoacao ? (
@@ -122,7 +119,6 @@ export function Header() {
                         )}
                       </div>
 
-                      {/* Renderização condicional dos botões */}
                       {showGerenciarDoacao && (
                         <div className="group-actions animated-fade-in">
                           <button
@@ -154,7 +150,6 @@ export function Header() {
                         )}
                       </div>
 
-                      {/* Renderização condicional dos botões */}
                       {showGerenciarNecessidade && (
                         <div className="group-actions animated-fade-in">
                           <button
@@ -197,9 +192,9 @@ export function Header() {
             </button>
           )
         ) : (
-          /* BOTÃO PARA DESLOGADO */
+          /* BOTÃO PARA USUÁRIO DESLOGADO: Alterado para "Área Login" */
           <button onClick={() => navigate("/login")} className="btn-login">
-            Área do Administrativo <ArrowRight size={18} />
+            Área Login <ArrowRight size={18} />
           </button>
         )}
       </div>

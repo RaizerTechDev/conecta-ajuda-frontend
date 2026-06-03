@@ -19,18 +19,18 @@ export function Register() {
   });
 
   // Busca os centros assim que o componente é montado
-  useEffect(() => {
-    async function loadCentros() {
-      try {
-        const response = await api.get('/centros-distribuicao');
-        // Garante que estamos salvando um array
-        setCentros(Array.isArray(response.data) ? response.data : []);
-      } catch (err) {
-        console.error("Erro ao carregar centros. Verifique se a rota no backend é pública.", err);
-      }
+useEffect(() => {
+  async function loadCentros() {
+    try {
+      const response = await api.get('/centros-distribuicao');
+      setCentros(Array.isArray(response.data) ? response.data : []);
+    } catch (err) {
+      console.error("Erro ao carregar centros. Verifique se a rota no backend é pública.", err);
+      setCentros([]); // Força um array vazio para o .map() do select não quebrar a tela
     }
-    loadCentros();
-  }, []);
+  }
+  loadCentros();
+}, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
