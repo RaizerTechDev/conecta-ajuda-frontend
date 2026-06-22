@@ -11,9 +11,9 @@
 
 <div align="center">
 
-🚀 Acesse o Projeto
+<br>
 
-**🔗 [Clique aqui e conheça o Projeto Desafio Connect!!](https://conecta-ajuda-frontend.vercel.app)**
+**🔗 [Clique aqui e acesse o Projeto Desafio Connect!!](https://conecta-ajuda-frontend.vercel.app)**
 
 </div>
 
