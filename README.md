@@ -73,7 +73,7 @@ O sistema consiste em uma plataforma de monitoramento de inventário e necessida
 
 ##  5. 🚀 Como consumir a API
 
-- **API (Render):** [https://conecta-ajuda-backend.onrender.com/](https://conecta-ajuda-backend.onrender.com/)
+- **API (Render):** [https://conecta-ajuda-backend.onrender.com/](https:/https://conecta-ajuda-backend-qw7b.onrender.com)
 
 ---
 
